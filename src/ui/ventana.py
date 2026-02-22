@@ -12,21 +12,29 @@ class Ventana(tk.Tk):
     def __init__(self):
         super().__init__();
         self.configurar_ventana();
-        self.title = Title(self, text='Descarga los Videos que Quieras 😈');
+        
+        ''' 
+        *   Primer Frame: Titulo del aplicativo y linea de separacion
+        '''
+        self.frame1 = Frame(parent=self, columnas=1, filas=1);
+        self.frame1.grid(row=0, column=0, sticky=tk.EW);
+        self.title = Title(parent=self.frame1, text='Descarga los Videos que Quieras 😈');
         self.title.grid(row=0, column=0);
         
-        # Primer Frame
-        self.frame1 = Frame(self, columnas=1, filas=2); 
-        self.frame1.grid(row=1, column=0, sticky=tk.EW);
-        self.subtitulo1 = Title(self.frame1, text='Ingresa el enlace del video que deseas descargar:', tamano=12, negrita=False);
+        ''' 
+        *   Segundo Frame: Subtitulo y entrada del link del sitio web
+        '''
+        self.frame2 = Frame(self, columnas=1, filas=2); 
+        self.frame2.grid(row=1, column=0, sticky=tk.EW);
+        self.subtitulo1 = Title(self.frame2, text='Ingresa el enlace del video que deseas descargar:', tamano=12, negrita=False);
         self.subtitulo1.grid(row=0, column=0, sticky=tk.EW);
-        self.entrada1 = Entry(self.frame1, font=('Arial', 12));
+        self.entrada1 = Entry(self.frame2, font=('Arial', 12));
         self.entrada1.grid(row=1, column=0, sticky=tk.EW);
         
         # Segundo Frame
-        self.frame2 = Frame(self, columnas=1, filas=1);
-        self.frame2.grid(row=2, column=0, sticky=tk.EW);
-        self.button1 = Button(self.frame2, text='Pegar enlace');
+        self.frame3 = Frame(self, columnas=1, filas=1);
+        self.frame3.grid(row=2, column=0, sticky=tk.EW);
+        self.button1 = Button(self.frame3, text='Pegar enlace');
         self.button1.grid(row=0, column=0, sticky=tk.EW);
         
         # Tercer Frame
@@ -49,11 +57,11 @@ class Ventana(tk.Tk):
         # Configuracion del flex
         self.columnconfigure(0, weight=1);
         self.rowconfigure(0, weight=0);
-        self.rowconfigure(1, weight=1);
-        self.rowconfigure(2, weight=1);
-        self.rowconfigure(3, weight=1);
-        self.rowconfigure(4, weight=1);
-        self.rowconfigure(5, weight=1);
+        self.rowconfigure(1, weight=0);
+        self.rowconfigure(2, weight=0);
+        self.rowconfigure(3, weight=0);
+        self.rowconfigure(4, weight=0);
+        self.rowconfigure(5, weight=0);
         
     def configurar_estilos(self):
         estilos = ttk.Style();

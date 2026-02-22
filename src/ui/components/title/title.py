@@ -1,4 +1,10 @@
-# Modulos
+'''
+============================================================
+*
+*
+*
+============================================================
+'''
 import tkinter as tk;
 from tkinter import ttk;
 
@@ -11,4 +17,4 @@ class Title(ttk.Label):
         estilo = 'bold' if negrita else 'normal';
         self.configure(
             font=('Arial', tamano, estilo),
-        );
+        ); 
